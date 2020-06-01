@@ -6,7 +6,7 @@ const Alert = () => {
   return (
     alert !== null && (
       <div className='alert alert-danger'>
-        <FaInfoCircle /> Email ou mot de passe est incorrect
+        <FaInfoCircle /> Email ou mot de passe est incorrect..
       </div>
     )
   );
