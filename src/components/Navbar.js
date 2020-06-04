@@ -6,13 +6,19 @@ import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 import { firebaseAuth } from "../context/firebase";
 const Navbar = () => {
-  const { cartItems, handleSidebar, authUser, GetOrderPanding } = useContext(
-    ProductContext
-  );
+  const {
+    cartItems,
+    handleSidebar,
+    authUser,
+    GetOrderPanding,
+    logoutUser,
+  } = useContext(ProductContext);
 
   const logout = async () => {
     await firebaseAuth.signOut().then(() => {
       GetOrderPanding();
+      logoutUser();
+      console.log(authUser);
     });
   };
   return (

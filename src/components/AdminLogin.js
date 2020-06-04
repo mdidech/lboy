@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import { firebaseAuth } from "../context/firebase";
 import { ProductContext } from "../context/context";
-import { Redirect, Link } from "react-router-dom";
 import Title from "./Title";
 import Alert from "./Alert";
-const Login = () => {
-  const { authUser, setAlert } = useContext(ProductContext);
+const AdminLogin = () => {
+  const { setAlert } = useContext(ProductContext);
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
   });
+
   const [firebaseError, setFirebaseError] = useState(null);
   const handleChange = (e) => {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -17,7 +17,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await login(userCredentials);
+    // await checkServerErrors();
     await setUserCredentials({
       email: "",
       password: "",
@@ -49,9 +51,7 @@ const Login = () => {
     }
   };
 
-  return authUser ? (
-    <Redirect to='/' />
-  ) : (
+  return (
     <section className='py-5'>
       <div className='row'>
         <div className='col-10 mx-auto col-md-6 my-3'>
@@ -91,11 +91,7 @@ const Login = () => {
                 Se Connecter
               </button>
             </div>
-            <div className='form-group text-center'>
-              <p>
-                Créer votre compte :<Link to='/register'> INSCRIVEZ-VOUS</Link>
-              </p>
-            </div>
+            <div className='form-group text-center'></div>
           </form>
         </div>
       </div>
@@ -103,4 +99,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

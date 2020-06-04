@@ -4,7 +4,7 @@ import Spinner from "../Spinner";
 import Title from "../Title";
 import firebase from "../../context/firebase";
 const MonCompte = () => {
-  const { authUser, userDocId } = useContext(ProductContext);
+  const { authUser, userDocId, getUser } = useContext(ProductContext);
 
   const [userCredentials, setUserCredentials] = useState({
     name: "",
@@ -19,7 +19,7 @@ const MonCompte = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // getUser();
+    getUser();
     update(userCredentials);
     setUserCredentials({
       name: "",

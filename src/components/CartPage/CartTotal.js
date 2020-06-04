@@ -3,10 +3,16 @@ import { ProductContext } from "../../context/context";
 import firebase from "../../context/firebase";
 import ModalCart from "./ModalCart";
 import ModalCartVide from "./ModalCartVide";
+import ModalCompleteProfile from "./ModalCompleteProfile";
 const CartTotal = () => {
-  const { clearCart, cartTotal, cart, authUser, getUserOrder } = useContext(
-    ProductContext
-  );
+  const {
+    clearCart,
+    cartTotal,
+    cart,
+    authUser,
+    getUserOrder,
+    currentUser,
+  } = useContext(ProductContext);
   const [cartVide, setCartVide] = useState(true);
   const [auth, setAuth] = useState("/moncompte");
   useEffect(() => {
@@ -60,8 +66,10 @@ const CartTotal = () => {
           <h3>Total: {cartTotal} dhs</h3>
           {cartVide ? (
             <ModalCartVide />
-          ) : (
+          ) : currentUser.adresse || currentUser.telephone ? (
             <ModalCart validCart={validCart} auth={auth} />
+          ) : (
+            <ModalCompleteProfile />
           )}
         </div>
       </div>

@@ -52,21 +52,21 @@ const EditeCommande = (props) => {
     return (
       <div className='body d-flex justify-content-around my-4'>
         <Link
-          to='/admin'
+          to='/admin/commandes'
           className={`btn btn-primary ${status.accepter}`}
           onClick={() => ChangeStatus("acceptée")}
         >
           Accepter
         </Link>
         <Link
-          to='/admin'
+          to='/admin/commandes'
           className={`btn btn-danger ${status.annuler}`}
           onClick={() => ChangeStatus("annuler")}
         >
           Annuler
         </Link>
         <Link
-          to='/admin'
+          to='/admin/commandes'
           className={`btn btn-success ${status.delivrer}`}
           onClick={() => ChangeStatus("délivrée")}
         >

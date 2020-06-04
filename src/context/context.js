@@ -26,6 +26,7 @@ export class ProductProvider extends Component {
     ordersList: [],
     userDetails: [],
     alert: null,
+    searchProducts: [],
   };
 
   //se charge le premier apres loading
@@ -45,8 +46,8 @@ export class ProductProvider extends Component {
       const unsubscribe = firebaseAuth.onAuthStateChanged(async (user) => {
         if (user) {
           // recuperer l'utilisateur déja connecté
-          await this.setState({ authUser: user }, () => {
-            this.getUser();
+          await this.setState({ authUser: user }, async () => {
+            await this.getUser();
             this.getOrders();
             this.getUserOrder();
             this.GetOrderPanding();
@@ -62,6 +63,9 @@ export class ProductProvider extends Component {
       console.log(error);
     }
   }
+  logoutUser = () => {
+    this.setState({ authUser: null, currentUser: null });
+  };
   setAlert = (alert) => {
     this.setState({ alert });
     setTimeout(() => this.setState({ alert: null }), 5000);
@@ -344,6 +348,18 @@ export class ProductProvider extends Component {
         });
     });
   };
+  productsByCategory = (category) => {
+    let ProductsByCategory = this.state.filteredProducts.filter(
+      (item) => item.categorie === category
+    );
+    this.setState({ searchProducts: ProductsByCategory });
+  };
+  SetSearchProducts = (produit) => {
+    const products = this.state.searchProducts.filter((item) => {
+      return item.title.includes(produit);
+    });
+    this.setState({ searchProducts: products });
+  };
   render() {
     return (
       <ProductContext.Provider
@@ -362,6 +378,10 @@ export class ProductProvider extends Component {
           removeProduit: this.removeProduit,
           getUserByOrder: this.getUserByOrder,
           setAlert: this.setAlert,
+          productsByCategory: this.productsByCategory,
+          SetSearchProducts: this.SetSearchProducts,
+          logoutUser: this.logoutUser,
+          getUser: this.getUser,
         }}
       >
         {this.props.children}
