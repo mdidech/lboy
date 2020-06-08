@@ -117,7 +117,8 @@ export class ProductProvider extends Component {
     let cartItems = 0;
     this.state.cart.forEach((item) => {
       total += parseFloat(item.total);
-      cartItems += item.count;
+      cartItems += 1;
+      // cartItems += item.count;
     });
     total = parseFloat(total.toFixed(2));
     return {
@@ -131,21 +132,21 @@ export class ProductProvider extends Component {
     this.setState({ cartItems: totals.cartItems, cartTotal: totals.total });
   };
   //cette fonction permet d'ajouter des produits a partir de la liste dans la cart
-  addToCart = (id) => {
+  addToCart = (id, countItems) => {
     let tempCart = [...this.state.cart];
     let tempProducts = [...this.state.storeProducts];
     let tempItem = tempCart.find((item) => item.id === id);
     if (!tempItem) {
       // si le produit ajouter n'existe pas déja dans la cart
       tempItem = tempProducts.find((item) => item.id === id);
-      let total = tempItem.price;
-      let cartItem = { ...tempItem, count: 1, total };
+      let total = tempItem.price * countItems;
+      let cartItem = { ...tempItem, count: countItems, total };
       tempCart = [...tempCart, cartItem];
     } else {
       // si le produit ajouter existe dans la cart
       tempItem.count++;
-      tempItem.total = parseFloat(tempItem.total) * tempItem.count;
-      tempItem.total = parseFloat(tempItem.total.toFixed(2));
+      tempItem.total =
+        parseFloat(tempItem.total.toFixed(2)) + parseFloat(tempItem.price);
     }
     this.setState({ cart: tempCart }, () => {
       this.addTotals();
@@ -183,8 +184,6 @@ export class ProductProvider extends Component {
     } else {
       this.removeItem(id);
     }
-
-    console.log(this.state.cart);
   };
   //supprimer un element de la cart par son id
   removeItem = (id) => {

@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { FaCartPlus } from "react-icons/fa";
 import { ProductContext } from "../context/context";
+import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
 const Product = ({ product }) => {
   const { addToCart } = useContext(ProductContext);
+  const [count, setCount] = useState(1);
+  const increment = () => {
+    let countItems = count + 1;
+    setCount(countItems);
+  };
+  const decrement = () => {
+    let countItems = count - 1;
+    if (countItems > 0) {
+      setCount(countItems);
+    }
+  };
   return (
     <ProductWrapper>
       <div className='card m-3 text-center'>
@@ -12,12 +24,12 @@ const Product = ({ product }) => {
             src={product.image}
             className='card-img-top p-4'
             alt='product'
-            style={{ height: "250px" }}
+            style={{ height: "200px" }}
           />
           <div className='product-icon'>
             <FaCartPlus
               className='icon text-center'
-              onClick={() => addToCart(product.id)}
+              onClick={() => addToCart(product.id, count)}
             />
           </div>
         </div>
@@ -25,6 +37,20 @@ const Product = ({ product }) => {
           <div className='titleProduct'>{product.title}</div>
           <div className='h6'>{product.description}</div>
           <div className='mb-0 text-main'>{product.price} dh</div>
+          <div className='d-flex justify-content-center py-2'>
+            <span className='pr-2'>Quantité:</span>
+            <div>
+              <FaChevronCircleDown
+                className='cart-icon text-primary'
+                onClick={() => decrement(product.id)}
+              />
+              <span className='text-title text-muted mx-3'>{count}</span>
+              <FaChevronCircleUp
+                className='cart-icon text-primary'
+                onClick={() => increment(product.id)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </ProductWrapper>

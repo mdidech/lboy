@@ -4,25 +4,23 @@ import { ProductContext } from "../context/context";
 import styled from "styled-components";
 const ProductsPage = (props) => {
   const { filteredProducts } = useContext(ProductContext);
-  const ProductsByCategory = filteredProducts.filter(
+  let ProductsByCategory = filteredProducts.filter(
     (item) => item.categorie === props.match.params.category
   );
-  const [searchProducts, setSearchProducts] = useState(ProductsByCategory);
-
-  const [produit, setProduit] = useState("");
+  const [searchProducts, setSearchProducts] = useState([]);
   const handleChange = (e) => {
-    setProduit(e.target.value);
     const products = ProductsByCategory.filter((item) => {
-      return item.title.includes(produit);
+      return item.title.includes(e.target.value);
     });
-
-    setSearchProducts(products);
-    console.log(searchProducts);
+    if (e.target.value === "") {
+      setSearchProducts([]);
+    } else {
+      setSearchProducts([...products]);
+    }
   };
   return (
     <ProductsWrapper className='py-5'>
       <div className='container-fluid'>
-        {/* <Search /> */}
         <p className='subtitle'>{props.match.params.category}</p>
         <form className='my-3'>
           <input
@@ -31,7 +29,6 @@ const ProductsPage = (props) => {
             className='w-25 p-1'
             name='titre'
             onChange={handleChange}
-            value={produit}
             placeholder='titre'
             autoComplete='off'
             width='50%'
@@ -39,9 +36,13 @@ const ProductsPage = (props) => {
         </form>
         <div className='title-underline'></div>
         <div className='row mx-auto px-2 d-flex justify-content-center '>
-          {ProductsByCategory.map((product) => {
-            return <Product key={product.id} product={product}></Product>;
-          })}
+          {searchProducts.length > 0
+            ? searchProducts.map((product) => {
+                return <Product key={product.id} product={product}></Product>;
+              })
+            : ProductsByCategory.map((product) => {
+                return <Product key={product.id} product={product}></Product>;
+              })}
         </div>
       </div>
     </ProductsWrapper>
@@ -69,6 +70,11 @@ const ProductsWrapper = styled.section`
     text-transform: capitalize;
     font-size: 2rem;
     letter-spacing: var(--mainSpacing);
+  }
+  @media screen and (max-width: 768px) {
+    input {
+      width: 60% !important;
+    }
   }
 `;
 

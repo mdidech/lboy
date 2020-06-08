@@ -12,6 +12,7 @@ const Navbar = () => {
     authUser,
     GetOrderPanding,
     logoutUser,
+    cartTotal,
   } = useContext(ProductContext);
 
   const logout = async () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
         <div className='container'>
           <div className='row nav-center'>
             <div className='col-4'>
-              <FaBars className='nav-icon' onClick={handleSidebar} />
+              <FaBars className='nav-icon nav-btn' onClick={handleSidebar} />
             </div>
             <div className='col-4 text-center'>
               <Link to='/'>
@@ -67,6 +68,9 @@ const Navbar = () => {
                   <div className='cart-items text-center'>{cartItems}</div>
                 </Link>
               </div>
+              <div className='ml-3 cartTotal authen text-warning'>
+                {cartTotal} dh
+              </div>
             </div>
           </div>
         </div>
@@ -86,6 +90,25 @@ const NavWrapper = styled.nav`
   .nav-center {
     align-items: center;
   }
+  .cartTotal {
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .nav-btn {
+    animation: bounce 2s ease infinite;
+  }
   .auth {
     font-family: Courgette, Arial, sans-serif;
     font-size: 0.95rem;
@@ -101,6 +124,7 @@ const NavWrapper = styled.nav`
   .nav-icon {
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--primaryColor);
   }
   .nav-cart {
     position: relative;

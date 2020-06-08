@@ -31,11 +31,14 @@ const MonCompte = () => {
               </label>
               <br />
               <br />
-              <label htmlFor='ville'>
-                <strong> Ville</strong>: {user.ville}
+              <label htmlFor='telephone'>
+                <strong> Telephone</strong>: {user.telephone}
               </label>
               <br />
               <br />
+              <label htmlFor='ville'>
+                <strong> Ville</strong>: {user.ville}
+              </label>
             </div>
           </div>
         </div>

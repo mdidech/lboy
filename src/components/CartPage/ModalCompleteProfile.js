@@ -17,9 +17,7 @@ const ModalCompleteProfile = () => {
   return (
     <div>
       <Button color='secondary' onClick={handleClickOpen}>
-        <div className='main-link h6 mt-4'>
-          <small>compte validation</small>
-        </div>
+        <div className='main-link h6 mt-4'>Valider mon panier</div>
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>adresse/telephone</DialogTitle>
