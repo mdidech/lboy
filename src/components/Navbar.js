@@ -19,7 +19,6 @@ const Navbar = () => {
     await firebaseAuth.signOut().then(() => {
       GetOrderPanding();
       logoutUser();
-      console.log(authUser);
     });
   };
   return (
@@ -69,7 +68,7 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className='ml-3 cartTotal authen text-warning'>
-                {cartTotal} dh
+                {cartTotal}dh
               </div>
             </div>
           </div>

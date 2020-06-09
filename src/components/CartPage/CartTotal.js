@@ -66,8 +66,12 @@ const CartTotal = () => {
           <h3>Total: {cartTotal} dhs</h3>
           {cartVide ? (
             <ModalCartVide />
-          ) : currentUser.adresse || currentUser.telephone ? (
-            <ModalCart validCart={validCart} auth={auth} />
+          ) : currentUser !== null ? (
+            currentUser.adresse || currentUser.telephone ? (
+              <ModalCart validCart={validCart} auth={auth} />
+            ) : (
+              <ModalCompleteProfile />
+            )
           ) : (
             <ModalCompleteProfile />
           )}

@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { ProductContext } from "../context/context";
 import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
 const Product = ({ product }) => {
-  const { addToCart } = useContext(ProductContext);
+  const { addToCart, cart } = useContext(ProductContext);
   const [count, setCount] = useState(1);
   const increment = () => {
     let countItems = count + 1;
@@ -16,6 +16,19 @@ const Product = ({ product }) => {
       setCount(countItems);
     }
   };
+  const addedToCart = () => {
+    let tempCart = [...cart];
+    let tempItem = tempCart.find((item) => item.id === product.id);
+    return tempItem ? (
+      <></>
+    ) : (
+      <FaCartPlus
+        className='icon text-center'
+        onClick={() => addToCart(product.id, count)}
+      />
+    );
+  };
+
   return (
     <ProductWrapper>
       <div className='card m-3 text-center'>
@@ -26,13 +39,9 @@ const Product = ({ product }) => {
             alt='product'
             style={{ height: "200px" }}
           />
-          <div className='product-icon'>
-            <FaCartPlus
-              className='icon text-center'
-              onClick={() => addToCart(product.id, count)}
-            />
-          </div>
+          <div className='product-icon'>{addedToCart()}</div>
         </div>
+
         <div className='card-body text-center p-2'>
           <div className='titleProduct'>{product.title}</div>
           <div className='h6'>{product.description}</div>

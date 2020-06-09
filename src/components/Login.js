@@ -28,7 +28,7 @@ const Login = () => {
       firebaseAuth
         .signInWithEmailAndPassword(email, password)
         .then((userLogged) => {
-          console.log(userLogged);
+          // console.log(userLogged);
         })
         .catch((err) => {
           setFirebaseError(err.code);

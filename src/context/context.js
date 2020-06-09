@@ -153,6 +153,7 @@ export class ProductProvider extends Component {
       this.syncStorage();
     });
   };
+
   // pour ouvrir et fermer le side bar
   handleSidebar = () => {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
@@ -217,7 +218,7 @@ export class ProductProvider extends Component {
             this.setState({ userDocId: docs[0].id });
             this.setState({ currentUser: docs[0].data() });
           } else {
-            console.log("no orders exist");
+            console.log("aucune commande n'existe");
           }
         });
     } catch (error) {
@@ -256,7 +257,7 @@ export class ProductProvider extends Component {
           if (docs.length !== 0) {
             this.setState({ ordersList: [...docs] });
           } else {
-            console.log("no orders exist");
+            console.log("aucune commande n'existe");
           }
         });
     } catch (error) {

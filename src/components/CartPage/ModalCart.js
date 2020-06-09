@@ -29,15 +29,19 @@ const ModalCart = ({ validCart, auth }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Annuler</Button>
+          <Button onClick={handleClose} className='bg-muted'>
+            Annuler
+          </Button>
           <Button
             onClick={() => {
               validCart();
               handleClose();
             }}
-            color='secondary'
+            className='bg-success'
           >
-            <Link to={auth}>Valider</Link>
+            <Link to={auth} className='text-white'>
+              Valider
+            </Link>
           </Button>
         </DialogActions>
       </Dialog>

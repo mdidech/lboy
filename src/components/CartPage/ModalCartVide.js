@@ -21,17 +21,19 @@ const ModalCart = () => {
         </div>
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Erreur</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            svp, ajouter quelques produits a votre panier
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color='secondary'>
-            d'accord
-          </Button>
-        </DialogActions>
+        <div className='bg-warning'>
+          <DialogTitle>Erreur</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              svp, ajouter quelques produits a votre panier
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} className='bg-danger text-white'>
+              d'accord
+            </Button>
+          </DialogActions>
+        </div>
       </Dialog>
     </div>
   );
