@@ -26,12 +26,11 @@ const ProductsPage = (props) => {
           <input
             type='text'
             required
-            className='w-25 p-1'
+            className='form-control'
             name='titre'
             onChange={handleChange}
-            placeholder='titre'
+            placeholder='Rechercher par produit...'
             autoComplete='off'
-            width='50%'
           />
         </form>
         <div className='title-underline'></div>
@@ -64,6 +63,18 @@ const ProductsWrapper = styled.section`
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
     text-transform: capitalize;
     letter-spacing: var(--mainSpacing);
+  }
+  .form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--darkGrey);
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 35%;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 0;
   }
   .subtitle {
     font-family: "Courgette", cursive;
