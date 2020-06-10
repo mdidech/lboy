@@ -3,9 +3,10 @@ import Product from "../components/Product";
 import { ProductContext } from "../context/context";
 import styled from "styled-components";
 const ProductsPage = (props) => {
+  const {category}=props.match.params
   const { filteredProducts } = useContext(ProductContext);
   let ProductsByCategory = filteredProducts.filter(
-    (item) => item.categorie === props.match.params.category
+    (item) => item.categorie === category
   );
   const [searchProducts, setSearchProducts] = useState([]);
   const handleChange = (e) => {
@@ -21,7 +22,7 @@ const ProductsPage = (props) => {
   return (
     <ProductsWrapper className='py-5'>
       <div className='container-fluid'>
-        <p className='subtitle'>{props.match.params.category}</p>
+        <p className='subtitle'>{category}</p>
         <form className='my-3'>
           <input
             type='text'
@@ -40,7 +41,7 @@ const ProductsPage = (props) => {
                 return <Product key={product.id} product={product}></Product>;
               })
             : ProductsByCategory.map((product) => {
-                return <Product key={product.id} product={product}></Product>;
+                return <Product key={product.id} product={product} category={category}></Product>;
               })}
         </div>
       </div>

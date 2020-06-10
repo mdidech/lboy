@@ -6,7 +6,7 @@ const Footer = () => {
   const { socialIcons } = useContext(ProductContext);
   return (
     <FooterWrapper>
-      <div className='container-fluid py-3 mx-auto'>
+      <div className='container py-3 mx-auto'>
         <div className='row'>
           <div className=' col-lg-6 col-md-12'>
             <p className='text-capitalize copyright'>

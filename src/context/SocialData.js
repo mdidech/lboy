@@ -4,17 +4,17 @@ import { FaFacebook, FaWhatsapp, FaYoutube } from "react-icons/fa";
 export const SocialData = [
   {
     id: 1,
-    icon: <FaFacebook className='icon' />,
+    icon: <FaFacebook className='icon text-primary' />,
     url: "https://www.facebook.com",
   },
   {
     id: 2,
-    icon: <FaWhatsapp className='icon' />,
+    icon: <FaWhatsapp className='icon text-success' />,
     url: "#",
   },
   {
     id: 3,
-    icon: <FaYoutube className='icon' />,
+    icon: <FaYoutube className='icon text-danger' />,
     url: "https://www.youtube.com",
   },
 ];

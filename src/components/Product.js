@@ -3,15 +3,30 @@ import styled from "styled-components";
 import { FaCartPlus } from "react-icons/fa";
 import { ProductContext } from "../context/context";
 import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
-const Product = ({ product }) => {
+const Product = ({ product,category }) => {
   const { addToCart, cart } = useContext(ProductContext);
   const [count, setCount] = useState(1);
   const increment = () => {
-    let countItems = count + 1;
+    let countItems=0
+    if (product.categorie==="fruits_legumes"){
+      countItems = count + 0.5;
+    }else if (product.categorie==="poissons_viandes"){
+      countItems = count + 0.25;
+    }else{
+      countItems = count + 1;
+    }
     setCount(countItems);
   };
   const decrement = () => {
-    let countItems = count - 1;
+     let countItems=0
+    if (product.categorie==="fruits_legumes"){
+      countItems = count - 0.5;
+    }else if (product.categorie==="poissons_viandes"){
+      countItems = count - 0.25;
+    }else{
+      countItems = count - 1;
+    }
+    
     if (countItems > 0) {
       setCount(countItems);
     }
@@ -45,7 +60,7 @@ const Product = ({ product }) => {
         <div className='card-body text-center p-2'>
           <div className='titleProduct'>{product.title}</div>
           <div className='h6'>{product.description}</div>
-          <div className='mb-0 text-main'>{product.price} dh</div>
+          <div className='mb-0 text-main'>{product.price}dh/<span className="text-warning">{product.unite}</span></div>
           <div className='d-flex justify-content-center py-2'>
             <span className='pr-2'>Quantité:</span>
             <div>
@@ -68,7 +83,6 @@ const Product = ({ product }) => {
 
 const ProductWrapper = styled.div`
   align-items: center;
-
   .card {
     margin-bottom: 1rem;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);

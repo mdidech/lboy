@@ -15,6 +15,8 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import MessengerBtn from "./components/MessengerBtn";
+
 function App(props) {
   return (
     <Fragment>
@@ -33,6 +35,7 @@ function App(props) {
         <Route exact path='/products/:category' component={Products} />
         <Route component={Default} />
       </Switch>
+      <MessengerBtn />
       <Footer />
     </Fragment>
   );
