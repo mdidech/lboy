@@ -67,3 +67,8 @@ body {
   background: var(--primaryColor);
   color: var(--mainWhite);
 }
+@media (max-width: 576px) {
+  .whatsapp {
+    display: none;
+  }
+}

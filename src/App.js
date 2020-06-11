@@ -16,8 +16,11 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import MessengerBtn from "./components/MessengerBtn";
+import WhatsappBadge from "react-whatsapp-badge";
+import Whatsapp from "./whatsapp.png";
 
 function App(props) {
+  const widthScreen = window.screen.width;
   return (
     <Fragment>
       <Navbar />
@@ -35,10 +38,18 @@ function App(props) {
         <Route exact path='/products/:category' component={Products} />
         <Route component={Default} />
       </Switch>
-      <MessengerBtn />
+      {widthScreen <= 600 ? (
+        <WhatsappBadge
+          text='lboy delivery à votre service'
+          phone={+212613586588}
+          image={Whatsapp}
+        />
+      ) : (
+        <MessengerBtn />
+      )}
+
       <Footer />
     </Fragment>
   );
 }
-
 export default App;

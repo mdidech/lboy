@@ -17,6 +17,7 @@
     "react-messenger-customer-chat": "^0.7.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-whatsapp-badge": "^1.0.3",
     "reactstrap": "^8.4.1",
     "styled-components": "^5.1.0",
     "uuid": "^8.1.0"

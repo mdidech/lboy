@@ -148,7 +148,7 @@ const NavWrapper = styled.nav`
     padding-right: 0.75rem;
     cursor: pointer;
   }
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     .authen {
       display: none;
     }
