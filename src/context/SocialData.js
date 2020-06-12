@@ -5,7 +5,7 @@ export const SocialData = [
   {
     id: 1,
     icon: <FaFacebook className='icon text-primary' />,
-    url: "https://www.facebook.com",
+    url: "https://www.facebook.com/Lboy-delivery-111125127302604",
   },
   {
     id: 2,

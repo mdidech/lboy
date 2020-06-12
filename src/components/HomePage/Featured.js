@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ProductContext } from "../../context/context";
-import Product from "../Product";
+import Product from "../Product2";
 const Featured = () => {
   const { featuredProducts } = useContext(ProductContext);
   return (

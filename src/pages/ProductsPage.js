@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import Product from "../components/Product";
+import Product from "../components/Product2";
 import { ProductContext } from "../context/context";
 import styled from "styled-components";
 const ProductsPage = (props) => {
-  const {category}=props.match.params
+  const { category } = props.match.params;
   const { filteredProducts } = useContext(ProductContext);
   let ProductsByCategory = filteredProducts.filter(
     (item) => item.categorie === category
@@ -41,7 +41,13 @@ const ProductsPage = (props) => {
                 return <Product key={product.id} product={product}></Product>;
               })
             : ProductsByCategory.map((product) => {
-                return <Product key={product.id} product={product} category={category}></Product>;
+                return (
+                  <Product
+                    key={product.id}
+                    product={product}
+                    category={category}
+                  ></Product>
+                );
               })}
         </div>
       </div>
