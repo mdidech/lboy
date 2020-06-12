@@ -51,8 +51,8 @@ const Product2 = ({ product }) => {
 
   return (
     <ProductWrapper>
-      <div className='col-md-4 col-lg-2 my-3'>
-        <div className='card m-3 text-center'>
+      <div className='col-md-4 col-lg-2'>
+        <div className='card m-2 text-center'>
           <div className='img-container'>
             <img
               src={product.image}
@@ -81,7 +81,7 @@ const Product2 = ({ product }) => {
           <div className='card-footer bg-secondary-light d-flex justify-content-between p-2'>
             <div className='text-price align-self-center'>
               {product.price}dh/
-              <span className='text-warning'>{product.unite}</span>
+              <span className='text-dark'>{product.unite}</span>
             </div>
             <div className='product-icon'>{addedToCart()}</div>
           </div>
@@ -96,7 +96,7 @@ const ProductWrapper = styled.div`
     margin-bottom: 1rem;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
     transition: var(--mainTransition);
-    width: 15rem;
+    width: 14rem;
     height: 22rem;
   }
   .card:hover {
@@ -145,7 +145,7 @@ const ProductWrapper = styled.div`
     font-size: 0.75rem;
   }
   .text-price {
-    font-weight: 400;
+    font-weight: bold;
     color: var(--primaryColor);
   }
 `;

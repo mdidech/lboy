@@ -31,7 +31,7 @@ const EditeProduit = (props) => {
     firebase.collection("produits").doc(produit.docId).update({
       categorie: produit.categorie,
       price: produit.price,
-      title: produit.title,
+      title: produit.title.toLowerCase(),
       description: produit.description,
     });
     props.history.push("/admin/produits");

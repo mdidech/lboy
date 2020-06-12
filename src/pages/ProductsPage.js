@@ -11,7 +11,7 @@ const ProductsPage = (props) => {
   const [searchProducts, setSearchProducts] = useState([]);
   const handleChange = (e) => {
     const products = ProductsByCategory.filter((item) => {
-      return item.title.includes(e.target.value);
+      return item.title.includes(e.target.value.toLowerCase());
     });
     if (e.target.value === "") {
       setSearchProducts([]);
@@ -35,7 +35,7 @@ const ProductsPage = (props) => {
           />
         </form>
         <div className='title-underline'></div>
-        <div className='row mx-auto px-2 d-flex justify-content-center '>
+        <div className='row mx-auto px-2 d-flex justify-content-center'>
           {searchProducts.length > 0
             ? searchProducts.map((product) => {
                 return <Product key={product.id} product={product}></Product>;

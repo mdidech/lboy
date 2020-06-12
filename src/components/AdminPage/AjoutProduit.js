@@ -3,8 +3,8 @@ import { firebaseStorage } from "../../context/firebase";
 import firebase from "../../context/firebase";
 import { withRouter } from "react-router-dom";
 import Title from "../Title";
-// import { ProductContext } from "../../context/context";
 import uuid from "uuid/dist/v4";
+
 const AjoutProduit = (props) => {
   const [produit, setProduit] = useState({
     image: "",
@@ -39,7 +39,7 @@ const AjoutProduit = (props) => {
             const { title, description, prix, categorie } = produit;
             const newProduit = {
               id: uuid(),
-              title,
+              title: title.toLowerCase(),
               description,
               price: prix,
               categorie,
@@ -52,6 +52,7 @@ const AjoutProduit = (props) => {
       }
     );
   };
+
   const handleChange = (e) => {
     setProduit({ ...produit, [e.target.name]: e.target.value });
   };
