@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../Title";
 import aboutBcg from "../../images/aboutBcg.jpg";
-import { FaLocationArrow, FaPhone, FaEnvelope } from "react-icons/fa";
 
 const Info = () => {
   return (
@@ -19,40 +18,6 @@ const Info = () => {
                   "linear-gradient(to right,var(--primaryColor),var(--darkGrey))",
               }}
             />
-            <div
-              style={{
-                position: "absolute",
-                top: "20%",
-                left: "20%",
-                transform: "rotate(-20deg)",
-              }}
-            >
-              <div>
-                <p>
-                  <span>
-                    <FaLocationArrow />
-                  </span>
-                  boulevard n52 b5 <br />
-                  Tanger
-                </p>
-              </div>
-              <div>
-                <p>
-                  <span>
-                    <FaEnvelope />
-                  </span>
-                  email@email.com
-                </p>
-              </div>
-              <div>
-                <p>
-                  <span>
-                    <FaPhone />
-                  </span>
-                  + 212 613586588
-                </p>
-              </div>
-            </div>
           </div>
 
           <div className='col-10 mx-auto col-md-6 my-3'>

@@ -7,8 +7,7 @@ const Categories = () => {
   const { links } = useContext(ProductContext);
   return (
     <CategoryWrapper id='category'>
-      <h4 className='title'>Produits:</h4>
-      <p className='subtitle'>Découvrez nos catégories</p>
+      <p className='title'>Découvrez nos catégories</p>
       <div className='title-underline'></div>
       <div className='container py-3'>
         <ul className='row categories'>
@@ -42,15 +41,10 @@ const CategoryWrapper = styled.div`
   .title {
     padding-top: 1.5rem;
     font-family: "Courgette", cursive;
-    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
-    text-transform: capitalize;
-    letter-spacing: var(--mainSpacing);
-  }
-  .subtitle {
-    font-family: "Courgette", cursive;
     text-transform: capitalize;
     font-size: 2rem;
     letter-spacing: var(--mainSpacing);
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
   }
   .categories {
     justify-content: center;

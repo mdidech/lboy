@@ -1,7 +1,9 @@
 import React from "react";
 import Hero from "../components/Hero";
+import Services from "../components/HomePage/Services";
 import Categories from "../components/HomePage/Categories";
 import Featured from "../components/HomePage/Featured";
+import FraisCourse from "../components/HomePage/FraisCourse";
 import styled from "styled-components";
 
 const HomePage = () => {
@@ -12,8 +14,10 @@ const HomePage = () => {
           nos produits
         </a>
       </Hero>
+      <Services />
       <Categories />
       <Featured />
+      <FraisCourse />
     </HomeWrapper>
   );
 };
