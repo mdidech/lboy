@@ -58,7 +58,7 @@ const Product2 = ({ product }) => {
               src={product.image}
               className='card-img-top p-2'
               alt='product'
-              style={{ height: "180px" }}
+              // style={{ height: "180px" }}
             />
           </div>
           <div className='card-body  text-center p-2'>
@@ -105,6 +105,7 @@ const ProductWrapper = styled.div`
   }
   .card-img-top {
     transition: var(--mainTransition);
+    height: 180px;
   }
   .card-img-top:hover {
     transform: scale(1.08);

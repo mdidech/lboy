@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaPhone, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaPhone } from "react-icons/fa";
 
 export const SocialData = [
   {
@@ -11,10 +11,5 @@ export const SocialData = [
     id: 2,
     icon: <FaPhone className='icon' />,
     url: "#",
-  },
-  {
-    id: 3,
-    icon: <FaYoutube className='icon' />,
-    url: "https://www.youtube.com",
   },
 ];

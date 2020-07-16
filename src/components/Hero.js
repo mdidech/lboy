@@ -1,11 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import mainBcg from "../images/mainBcg3.jpg";
+import { motion } from "framer-motion";
 const Hero = ({ img, title, max, children }) => {
   return (
     <HeroWrapper max={max} img={img}>
       <div className='banner'>
-        <h1 className='title'>{title}</h1>
+        <motion.h1
+          className='title'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 3 }}
+        >
+          {title}
+        </motion.h1>
         {children}
       </div>
     </HeroWrapper>
@@ -21,7 +29,7 @@ const HeroWrapper = styled.div`
   background: linear-gradient(var(--primaryRGBA), var(--primaryRGBA)),
     url(${(props) => props.img}) center/cover no-repeat fixed;
   background-size: 100vw 100vh;
-  @keyframes slideFromRight {
+  /* @keyframes slideFromRight {
     0% {
       transform: translateX(1000px);
       opacity: 0;
@@ -41,7 +49,7 @@ const HeroWrapper = styled.div`
   }
   .banner h1 {
     animation: slideFromRight 5s ease-in-out 1;
-  }
+  } */
   .title {
     padding-top: 2rem;
     font-size: 3rem;

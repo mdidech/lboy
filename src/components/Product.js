@@ -52,7 +52,7 @@ const Product = ({ product, category }) => {
             src={product.image}
             className='card-img-top p-4'
             alt='product'
-            style={{ height: "200px" }}
+            // style={{ height: "200px" }}
           />
           <div className='product-icon'>{addedToCart()}</div>
         </div>
@@ -99,6 +99,7 @@ const ProductWrapper = styled.div`
   }
   .card-img-top {
     transition: var(--mainTransition);
+    height: 200px;
   }
   .card-img-top:hover {
     transform: scale(1.15);

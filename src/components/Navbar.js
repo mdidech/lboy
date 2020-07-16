@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { FaBars, FaCartPlus } from "react-icons/fa";
+import { FaBars, FaCartPlus, FaUser } from "react-icons/fa";
 import { ProductContext } from "../context/context";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -21,14 +21,40 @@ const Navbar = () => {
       logoutUser();
     });
   };
+  console.log(window.screen.width);
   return (
     <Fragment>
       <NavWrapper>
         <div className='container'>
-          <div className='row nav-center'>
-            <div className='col-4'>
-              <FaBars className='nav-icon nav-btn' onClick={handleSidebar} />
-            </div>
+          <div className='row nav-center d-flex justify-content-between'>
+            {window.screen.width < 768 ? (
+              <div className='col-3'>
+                <FaBars
+                  className='nav-icon nav-btn test'
+                  onClick={handleSidebar}
+                />
+              </div>
+            ) : (
+              <div className='col-4 d-flex justify-content-start authen'>
+                <div className='text-center '>
+                  <Link to='/#category' className='menu-full'>
+                    Catégories
+                  </Link>
+                </div>
+                |
+                <div className='text-center'>
+                  <Link to='/moncompte' className='menu-full'>
+                    Mon compte
+                  </Link>
+                </div>
+                |
+                <div className='text-center'>
+                  <Link to='/about' className='menu-full'>
+                    Contactez-nous
+                  </Link>
+                </div>
+              </div>
+            )}
             <div className='col-4 text-center'>
               <Link to='/'>
                 <img src={Logo} alt='logo' className='logo-title' />
@@ -40,7 +66,8 @@ const Navbar = () => {
                 <>
                   <div className='authen text-center'>
                     <Link to='/moncompte' className='auth'>
-                      {authUser.email}
+                      {/* {authUser.email} */}
+                      <FaUser className='user-icon' />
                     </Link>
                     |
                   </div>
@@ -117,6 +144,7 @@ const NavWrapper = styled.nav`
     color: var(--darkGrey);
     align-items: center;
   }
+  .menu-full:hover,
   .auth:hover {
     color: var(--primaryColor);
   }
@@ -124,6 +152,9 @@ const NavWrapper = styled.nav`
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--primaryColor);
+  }
+  .user-icon {
+    font-size: 1.5rem;
   }
   .nav-cart {
     position: relative;
@@ -148,8 +179,23 @@ const NavWrapper = styled.nav`
     padding-right: 0.75rem;
     cursor: pointer;
   }
+  .menu-full {
+    font-family: Courgette, Arial, sans-serif;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 0 0.25rem;
+    cursor: pointer;
+    color: var(--darkGrey);
+    align-items: center;
+  }
+
   @media (max-width: 768px) {
     .authen {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) {
+    .test {
       display: none;
     }
   }

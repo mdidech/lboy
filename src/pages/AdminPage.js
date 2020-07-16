@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
 import AppBar from "@material-ui/core/AppBar";
+import { Button } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -21,6 +22,8 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import HomeIcon from "@material-ui/icons/Home";
 import Produits from "../components/AdminPage/Produits";
 import Commandes from "../components/AdminPage/Commandes";
+import Categories from "../components/AdminPage/Categories";
+import SocialNetworks from "../components/AdminPage/SocialNetworks";
 import AjoutProduit from "../components/AdminPage/AjoutProduit";
 import EditeCommande from "../components/AdminPage/EditeCommande";
 import EditeProduit from "../components/AdminPage/EditeProduit";
@@ -128,12 +131,7 @@ export default function ClippedDrawer() {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <img
-                    src={Logo}
-                    alt='logo'
-                    className='logo-title'
-                    width='60px'
-                  />
+
                   <ul
                     className='d-flex justify-content-between w-100'
                     style={{ listStyle: "none" }}
@@ -143,9 +141,18 @@ export default function ClippedDrawer() {
                         variant='h4'
                         style={{
                           paddingLeft: "20px",
+                          margin: "0 auto",
                         }}
                       >
-                        lboy delivery
+                        <div style={{ paddingTop: "7px" }}>
+                          <img
+                            src={Logo}
+                            alt='logo'
+                            className='logo-title'
+                            width='60px'
+                          />
+                          lboy delivery
+                        </div>
                       </Typography>
                     </li>
                     <li>
@@ -159,7 +166,7 @@ export default function ClippedDrawer() {
                         }}
                         onClick={logout}
                       >
-                        déconnecter
+                        <Button color='inherit'>déconnecter</Button>
                       </Link>
                     </li>
                   </ul>
@@ -200,7 +207,7 @@ export default function ClippedDrawer() {
                   <Link to='/admin' className={classes.link}>
                     <ListItem button>
                       <ListItemIcon></ListItemIcon>
-                      <ListItemText primary='dashboard' />
+                      <ListItemText primary='Dashboard' />
                     </ListItem>
                   </Link>
                 </List>
@@ -208,7 +215,7 @@ export default function ClippedDrawer() {
                   <Link to='/admin/produits' className={classes.link}>
                     <ListItem button>
                       <ListItemIcon></ListItemIcon>
-                      <ListItemText primary='produits' />
+                      <ListItemText primary='Produits' />
                     </ListItem>
                   </Link>
                 </List>
@@ -216,7 +223,23 @@ export default function ClippedDrawer() {
                   <Link to='/admin/commandes' className={classes.link}>
                     <ListItem button>
                       <ListItemIcon></ListItemIcon>
-                      <ListItemText primary='commandes' />
+                      <ListItemText primary='Commandes' />
+                    </ListItem>
+                  </Link>
+                </List>
+                <List>
+                  <Link to='/admin/categories' className={classes.link}>
+                    <ListItem button>
+                      <ListItemIcon></ListItemIcon>
+                      <ListItemText primary='Catégories' />
+                    </ListItem>
+                  </Link>
+                </List>
+                <List>
+                  <Link to='/admin/socialnetworks' className={classes.link}>
+                    <ListItem button>
+                      <ListItemIcon></ListItemIcon>
+                      <ListItemText primary='Réseaux Sociaux' />
                     </ListItem>
                   </Link>
                 </List>
@@ -241,6 +264,16 @@ export default function ClippedDrawer() {
                   <Route exact path='/admin/commandes'>
                     <Container>
                       <Commandes />
+                    </Container>
+                  </Route>
+                  <Route exact path='/admin/categories'>
+                    <Container>
+                      <Categories />
+                    </Container>
+                  </Route>
+                  <Route exact path='/admin/socialnetworks'>
+                    <Container>
+                      <SocialNetworks />
                     </Container>
                   </Route>
                   <Route exact path='/admin/ajoutproduit'>

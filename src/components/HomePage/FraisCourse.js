@@ -10,20 +10,20 @@ const FraisCourse = () => {
         <article className='col-md-6 fraisCourse'>
           <h2 className='section-title'>conditions de livraison:</h2>
           <div className='frais-info'>
-            <div className='d-flex justify-content-between '>
+            <div className='d-flex justify-content-between'>
               <h5 className='course-title'>Montant minimum de commande:</h5>
               <strong className='frais'>100dhs </strong>
             </div>
             <div className='d-flex justify-content-between'>
-              <h5 className='course-title'> Tarif:</h5>
+              <h5 className='course-title'>Tarif:</h5>
               <strong className='frais'>25dhs </strong>
             </div>
             <div className='d-flex justify-content-between'>
-              <h5 className='course-title'> Horaire:</h5>
+              <h5 className='course-title'>Horaire:</h5>
               <strong className='frais'>lundi au dimanche de 10h à 18h </strong>
             </div>
           </div>
-          <div style={{ fontSize: "0.55rem" }}>
+          <div className='coverZone'>
             *dediée uniquement pour la ville de Nador
           </div>
         </article>
@@ -102,11 +102,14 @@ const FraisWrapper = styled.section`
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
   }
-
+  .coverZone {
+    font-size: 0.55rem;
+  }
   .course-title {
     font-size: 1rem;
     color: var(--primaryColor);
     padding: 0.5rem 0.75rem;
+    text-align: left;
   }
   .frais {
     padding: 0.5rem 0.75rem;

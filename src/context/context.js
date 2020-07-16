@@ -1,15 +1,15 @@
 import React, { Component, createContext } from "react";
 import { linkData } from "./linkData";
-import { SocialData } from "./SocialData";
 import firebase from "./firebase";
 import { firebaseAuth } from "./firebase";
+import { FaFacebook, FaPhone } from "react-icons/fa";
 export const ProductContext = createContext();
 export class ProductProvider extends Component {
   state = {
     sidebarOpen: false,
     cartItems: 0,
     links: linkData,
-    socialIcons: SocialData,
+    socialIcons: [],
     products: [],
     cart: [],
     cartItem: 0,
@@ -27,6 +27,7 @@ export class ProductProvider extends Component {
     userDetails: [],
     alert: null,
     searchProducts: [],
+    socialLinks: {},
   };
 
   //se charge le premier apres loading
@@ -43,6 +44,7 @@ export class ProductProvider extends Component {
           // affecter les produits a des variables state
           this.setProducts(produits);
         });
+
       const unsubscribe = firebaseAuth.onAuthStateChanged(async (user) => {
         if (user) {
           // recuperer l'utilisateur déja connecté
@@ -65,6 +67,32 @@ export class ProductProvider extends Component {
   }
   logoutUser = () => {
     this.setState({ authUser: null, currentUser: null });
+  };
+  SocialLinks = () => {
+    firebase
+      .collection("social_links")
+      .doc("links")
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          this.setState({
+            socialIcons: [
+              {
+                id: 1,
+                icon: <FaFacebook className='icon' />,
+                url: doc.data().facebook,
+              },
+              {
+                id: 2,
+                icon: <FaPhone className='icon' />,
+                url: doc.data().telephone,
+              },
+            ],
+          });
+        } else {
+          console.log("No such document!");
+        }
+      });
   };
   setAlert = (alert) => {
     this.setState({ alert });
@@ -93,7 +121,10 @@ export class ProductProvider extends Component {
         cart: this.getStorageCart(),
         loading: false,
       },
-      () => this.addTotals()
+      () => {
+        this.addTotals();
+        this.SocialLinks();
+      }
     );
   };
 
