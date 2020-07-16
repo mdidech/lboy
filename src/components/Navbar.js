@@ -37,15 +37,9 @@ const Navbar = () => {
             ) : (
               <div className='col-4 d-flex justify-content-start authen'>
                 <div className='text-center '>
-                  <Link to='/#category' className='menu-full'>
+                  <a href='/#category' className='menu-full'>
                     Catégories
-                  </Link>
-                </div>
-                |
-                <div className='text-center'>
-                  <Link to='/moncompte' className='menu-full'>
-                    Mon compte
-                  </Link>
+                  </a>
                 </div>
                 |
                 <div className='text-center'>
