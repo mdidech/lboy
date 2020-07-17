@@ -28,7 +28,8 @@ const FeaturedWrapper = styled.div`
   }
   .title {
     padding-top: 1.5rem;
-    font-family: "Courgette", cursive;
+    /* font-family: "Courgette", cursive; */
+    font-family: var(--font-primary);
     text-transform: capitalize;
     font-size: 2rem;
     letter-spacing: var(--mainSpacing);

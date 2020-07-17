@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Overlock:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -20,9 +21,12 @@ body {
   --mainBlack: #222;
   --mainTransition: all 0.3s ease-in-out;
   --mainSpacing: 0.3rem;
+  /* --font-primary: "Merriweather", serif !important; */
+  --font-primary: "Overlock", cursive;
 }
 .text-title {
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: var(--font-primary);
   font-weight: bold;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
@@ -31,7 +35,7 @@ body {
   color: var(--primaryColor);
 }
 body {
-  font-family: "Open Sans", sans-serif !important;
+  /* font-family: "Open Sans", sans-serif !important; */
   background: var(--mainGrey) !important;
   color: var(--mainBlack);
 }
@@ -48,9 +52,11 @@ body {
   outline-offset: 4px;
   border: none;
   transition: var(--mainTransition);
+  font-family: var(--font-primary);
 }
 .main-link:hover {
   background: var(--darkGrey);
+  background: rgba(255, 255, 255, 0.3);
   text-decoration: none;
   color: var(--primaryColor);
   outline-color: var(--darkGrey);
@@ -61,7 +67,8 @@ body {
 .nav-link {
   color: var(--mainDark);
   text-decoration: underline;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: var(--font-primary);
 }
 .nav-link:hover {
   background: var(--primaryColor);

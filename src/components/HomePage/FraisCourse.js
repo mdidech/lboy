@@ -75,7 +75,8 @@ const FraisWrapper = styled.section`
 
   .title {
     padding-top: 1.5rem;
-    font-family: "Courgette", cursive;
+    /* font-family: "Courgette", cursive; */
+    font-family: var(--font-primary);
     text-transform: capitalize;
     font-size: 2rem;
     letter-spacing: var(--mainSpacing);
@@ -87,7 +88,7 @@ const FraisWrapper = styled.section`
   }
   .section-title {
     font-size: 1.5rem;
-    font-family: Courgette, Arial, sans-serif;
+    font-family: var(--font-primary);
     color: var(--primaryColor);
     margin-bottom: 1rem;
     text-align: left;
@@ -110,6 +111,7 @@ const FraisWrapper = styled.section`
     color: var(--primaryColor);
     padding: 0.5rem 0.75rem;
     text-align: left;
+    font-weight: 400;
   }
   .frais {
     padding: 0.5rem 0.75rem;

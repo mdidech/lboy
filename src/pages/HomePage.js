@@ -14,13 +14,15 @@ const HomePage = () => {
         <motion.a
           href='#category'
           className='main-link banner-btn my-3'
-          initial={{ x: "100vw" }}
-          animate={{ x: 0 }}
+          initial={{ scale: 1.07, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           whileHover={{
-            scale: 1.07,
-            backgroundColor: "#A6D49F",
+            scale: 1.2,
           }}
-          transition={{ type: "spring", stiffness: 120 }}
+          transition={{
+            delay: 1,
+            // duration: 1,
+          }}
         >
           nos produits
         </motion.a>

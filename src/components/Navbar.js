@@ -114,7 +114,7 @@ const NavWrapper = styled.nav`
     font-size: 0.7rem;
     font-weight: bold;
   }
-  @keyframes bounce {
+  /* @keyframes bounce {
     0% {
       transform: scale(1);
     }
@@ -124,14 +124,15 @@ const NavWrapper = styled.nav`
     100% {
       transform: scale(1);
     }
-  }
+  } */
 
-  .nav-btn {
+  /* .nav-btn {
     animation: bounce 2s ease infinite;
-  }
+  } */
   .auth {
-    font-family: Courgette, Arial, sans-serif;
-    font-size: 0.95rem;
+    /* font-family: Courgette, Arial, sans-serif; */
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
     text-decoration: none;
     margin: 0 15px;
     cursor: pointer;
@@ -174,8 +175,10 @@ const NavWrapper = styled.nav`
     cursor: pointer;
   }
   .menu-full {
-    font-family: Courgette, Arial, sans-serif;
-    font-size: 0.95rem;
+    /* font-family: Courgette, Arial, sans-serif; */
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
     text-decoration: none;
     padding: 0 0.25rem;
     cursor: pointer;

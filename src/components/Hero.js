@@ -10,7 +10,7 @@ const Hero = ({ img, title, max, children }) => {
           className='title'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 3 }}
+          transition={{ delay: 1, duration: 1.5 }}
         >
           {title}
         </motion.h1>
@@ -53,7 +53,8 @@ const HeroWrapper = styled.div`
   .title {
     padding-top: 2rem;
     font-size: 3rem;
-    font-family: "Courgette", cursive;
+    font-family: var(--font-primary);
+    /* font-weight: 700; */
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
     text-transform: capitalize;
     letter-spacing: var(--mainSpacing);

@@ -57,7 +57,8 @@ const ServicesWrapper = styled.section`
     font-size: 1.35rem;
     margin: 0 auto;
     max-width: 85vw;
-    font-family: Courgette, Arial, sans-serif;
+    font-family: var(--font-primary);
+    /* font-weight: 700; */
   }
 `;
 
