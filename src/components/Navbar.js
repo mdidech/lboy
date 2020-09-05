@@ -21,34 +21,25 @@ const Navbar = () => {
       logoutUser();
     });
   };
-  console.log(window.screen.width);
   return (
     <Fragment>
       <NavWrapper>
         <div className='container'>
           <div className='row nav-center d-flex justify-content-between'>
-            {window.screen.width < 768 ? (
-              <div className='col-3'>
-                <FaBars
-                  className='nav-icon nav-btn test'
-                  onClick={handleSidebar}
-                />
-              </div>
-            ) : (
-              <div className='col-4 d-flex justify-content-start authen'>
-                <div className='text-center '>
-                  <a href='/#category' className='menu-full'>
-                    Catégories
-                  </a>
-                </div>
-                |
-                <div className='text-center'>
-                  <Link to='/about' className='menu-full'>
-                    Contactez-nous
-                  </Link>
-                </div>
-              </div>
-            )}
+            <div className='col-3 sidebar'>
+              <FaBars className='nav-icon nav-btn' onClick={handleSidebar} />
+            </div>
+
+            <div className='col-4 catg'>
+              <a href='/#category' className='menu-full'>
+                Catégories
+              </a>
+              |
+              <Link to='/about' className='menu-full'>
+                Contactez-nous
+              </Link>
+            </div>
+
             <div className='col-4 text-center'>
               <Link to='/'>
                 <img src={Logo} alt='logo' className='logo-title' />
@@ -185,14 +176,22 @@ const NavWrapper = styled.nav`
     color: var(--darkGrey);
     align-items: center;
   }
-
-  @media (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+    .catg {
+      display: block;
+    }
+  }
+  @media screen and (max-width: 767px) {
     .authen {
       display: none;
     }
-  }
-  @media (min-width: 768px) {
-    .test {
+    .sidebar {
+      display: block;
+    }
+    .catg {
       display: none;
     }
   }
