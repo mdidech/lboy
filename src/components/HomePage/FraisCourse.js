@@ -66,6 +66,7 @@ const FraisCourse = () => {
 const FraisWrapper = styled.section`
   min-height: 35vh;
   text-align: center;
+  padding: 1rem;
   .title-underline {
     height: 0.25rem;
     width: 5rem;
@@ -74,7 +75,7 @@ const FraisWrapper = styled.section`
   }
 
   .title {
-    padding-top: 1.5rem;
+    /* padding-top: 1.5rem; */
     /* font-family: "Courgette", cursive; */
     font-family: var(--font-primary);
     text-transform: capitalize;
@@ -131,6 +132,17 @@ const FraisWrapper = styled.section`
   }
   .contact-text {
     padding: 0.5rem 0.75rem;
+  }
+  @media screen and (max-width: 568px) {
+    .title {
+      font-size: 1.5rem;
+    }
+    .section-title {
+      font-size: 1rem;
+    }
+    .contact {
+      padding: 0 2rem;
+    }
   }
 `;
 export default FraisCourse;

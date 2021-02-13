@@ -24,11 +24,12 @@ const HeroWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: ${(props) => (props.max === "true" ? "65vh" : "60vh")};
+  min-height: ${(props) => (props.max === "true" ? "65vh" : "70vh")};
   color: var(--mainWhite);
   background: linear-gradient(var(--primaryRGBA), var(--primaryRGBA)),
     url(${(props) => props.img}) center/cover no-repeat fixed;
   background-size: 100vw 100vh;
+  object-fit: cover;
   /* @keyframes slideFromRight {
     0% {
       transform: translateX(1000px);
@@ -54,6 +55,7 @@ const HeroWrapper = styled.div`
     padding-top: 2rem;
     font-size: 3rem;
     font-family: var(--font-primary);
+    max-width: 40rem;
     /* font-weight: 700; */
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
     text-transform: capitalize;
@@ -61,7 +63,10 @@ const HeroWrapper = styled.div`
   }
   @media screen and (max-width: 598px) {
     background: linear-gradient(var(--primaryRGBA), var(--primaryRGBA)),
-      url(${(props) => props.img}) bottom left/cover no-repeat fixed;
+      url(${(props) => props.img}) bottom right/cover no-repeat fixed;
+    .title {
+      font-size: 2rem;
+    }
   }
 `;
 Hero.defaultProps = {

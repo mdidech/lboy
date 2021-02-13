@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import CartSection from "../components/CartPage/Cart";
 import Hero from "../components/Hero";
 // import cartBcg from "../images/storeBcg.jpeg"
-import cartBcg from "../images/storeBcg2.jpg";
+import cartBcg from "../images/cart.png";
 const CartPage = () => {
   return (
     <Fragment>

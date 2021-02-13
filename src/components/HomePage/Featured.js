@@ -20,6 +20,7 @@ const Featured = () => {
 };
 const FeaturedWrapper = styled.div`
   text-align: center;
+  padding: 0 1rem 1rem;
   .title-underline {
     height: 0.25rem;
     width: 5rem;
@@ -27,7 +28,7 @@ const FeaturedWrapper = styled.div`
     margin: 0 auto;
   }
   .title {
-    padding-top: 1.5rem;
+    /* padding-top: 1.5rem; */
     /* font-family: "Courgette", cursive; */
     font-family: var(--font-primary);
     text-transform: capitalize;
@@ -37,6 +38,11 @@ const FeaturedWrapper = styled.div`
   }
   .featured {
     /* justify-content: center; */
+  }
+  @media screen and (max-width: 568px) {
+    .title {
+      font-size: 1.5rem;
+    }
   }
 `;
 export default Featured;

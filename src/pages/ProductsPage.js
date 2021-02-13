@@ -22,7 +22,7 @@ const ProductsPage = (props) => {
   return (
     <ProductsWrapper className='py-5'>
       <div className='container-fluid'>
-        <p className='subtitle'>{category}</p>
+        <p className='subtitle'>{category.replace("_", " ")}</p>
         <form className='my-3'>
           <input
             type='text'
@@ -35,7 +35,7 @@ const ProductsPage = (props) => {
           />
         </form>
         <div className='title-underline'></div>
-        <div className='row mx-auto px-2 d-flex justify-content-center'>
+        <div className='row mx-auto px-2 d-flex justify-content-center mt-4'>
           {searchProducts.length > 0
             ? searchProducts.map((product) => {
                 return <Product key={product.id} product={product}></Product>;
@@ -58,6 +58,8 @@ const ProductsPage = (props) => {
 const ProductsWrapper = styled.section`
   text-align: center;
   min-height: 90vh;
+  max-width: 1250px;
+  margin: 0 auto;
   .title-underline {
     height: 0.25rem;
     width: 5rem;
@@ -72,7 +74,7 @@ const ProductsWrapper = styled.section`
     letter-spacing: var(--mainSpacing);
   }
   .form-control {
-    background-color: transparent;
+    background-color: #fff;
     border: none;
     border-bottom: 1px solid var(--darkGrey);
     border-radius: 0;
@@ -81,7 +83,7 @@ const ProductsWrapper = styled.section`
     width: 35%;
     font-size: 16px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0.75rem;
   }
   .subtitle {
     font-family: "Courgette", cursive;
@@ -89,9 +91,10 @@ const ProductsWrapper = styled.section`
     font-size: 2rem;
     letter-spacing: var(--mainSpacing);
   }
+
   @media screen and (max-width: 768px) {
     input {
-      width: 60% !important;
+      width: 80% !important;
     }
   }
 `;

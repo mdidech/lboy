@@ -92,6 +92,7 @@ const Product2 = ({ product }) => {
 };
 const ProductWrapper = styled.div`
   align-items: center;
+  margin-bottom: 1.2rem;
   .card {
     margin-bottom: 1rem;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);

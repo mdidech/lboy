@@ -9,7 +9,7 @@ const CartList = () => {
       <div className='row'>
         <div className='col'>
           {cart.length === 0 ? (
-            <h1 className='text-title text-center my-4'>Mon panier est vide</h1>
+            <h4 className='text-title text-center my-4'>Mon panier est vide</h4>
           ) : (
             <>
               {cart.map((item) => (
@@ -20,7 +20,7 @@ const CartList = () => {
                   decrement={decrement}
                   remove={removeItem}
                 />
-                ))}
+              ))}
             </>
           )}
         </div>

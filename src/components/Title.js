@@ -19,6 +19,12 @@ const TitleWrapper = styled.div`
     background: var(--primaryColor);
     margin: ${(props) => (props.center ? "0 auto" : "0")};
   }
+  @media screen and (max-width: 568px) {
+    .text-title {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export default Title;

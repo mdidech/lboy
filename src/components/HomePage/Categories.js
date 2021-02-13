@@ -27,6 +27,7 @@ const Categories = () => {
   );
 };
 const CategoryWrapper = styled.div`
+  padding: 1rem;
   text-align: center;
 
   /* #category {
@@ -54,7 +55,7 @@ const CategoryWrapper = styled.div`
     /* margin: 0px 10px; */
     border: 1px solid #a7a9a6;
     border-radius: 5px;
-    margin: 5px 5px;
+    margin: 0.75rem 1rem;
     list-style: none;
     height: 5rem;
     display: flex;
@@ -82,6 +83,11 @@ const CategoryWrapper = styled.div`
     font-size: 2rem;
     color: var(--primaryColor);
     transition: var(--mainTransition);
+  }
+  @media screen and (max-width: 568px) {
+    .title {
+      font-size: 1.5rem;
+    }
   }
 `;
 export default Categories;
